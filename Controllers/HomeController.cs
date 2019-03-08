@@ -17,7 +17,16 @@ namespace Projekt1.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            User user = new User(){Id=1,Nick="TwojStary",Password="pijany"};
+            return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult Privacy(User user)
+        {
+            System.Diagnostics.Debug.WriteLine(user.Id);
+            
+            return View(user);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
