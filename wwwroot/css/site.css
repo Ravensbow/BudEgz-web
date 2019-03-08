@@ -10,8 +10,13 @@ a.navbar-brand {
   margin-top: 40px;
   margin-left: auto;
   margin-right:auto;
-  background-color: lightslategray;
+  background-color: whitesmoke;
   border-radius: 8px;
+  color: black;
+  padding: 30px;
+  text-align: justify;
+  border: 3px solid #e0c52c;
+ 
 }
 /* Sticky footer styles
 -------------------------------------------------- */
