@@ -6,7 +6,13 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
-
+.boble{
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right:auto;
+  background-color: lightslategray;
+  border-radius: 8px;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
