@@ -13,11 +13,17 @@ namespace Projekt1.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.ListaPytan = new List<string>(){"Mosty","Beton","Asfalt","Fundamentalizm","Ziemniaki"};
             return View();
         }
-        public IActionResult Test()
+        [HttpPost]
+        public string Index( EgzaminModel em)
         {
-            return View();
+            return em.LiczbaPytan.ToString();
+        }
+        public string Test(EgzaminModel em)
+        {
+            return em.LiczbaPytan.ToString();
         }
     }
 }
