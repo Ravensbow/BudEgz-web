@@ -17,9 +17,9 @@ namespace Projekt1.Controllers
             return View();
         }
         [HttpPost]
-        public void Index( EgzaminModel Em)
+        public IActionResult Index( EgzaminModel Em)
         {
-            RedirectToAction("Test",new {em=Em });
+           return RedirectToAction("Test","Egzamin",new {em=Em });
 
         }
         public IActionResult Test(EgzaminModel em)

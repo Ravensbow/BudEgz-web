@@ -1,6 +1,7 @@
 @model Projekt1.Models.EgzaminModel
 @{
     ViewData["Title"] = "Home Page";
+   
 }
 
 <div class="boble">
@@ -46,7 +47,7 @@
                     @Html.DisplayNameFor(m => m.TimePytanie)
                 </td>
                 <td>
-                   @Html.EditorFor(m => m.TimePytanie)
+                   @Html.EditorFor(m => m.TimePytanie) min
                 </td>
             </tr>
             <tr>

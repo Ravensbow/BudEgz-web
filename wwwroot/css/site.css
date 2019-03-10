@@ -52,7 +52,7 @@ a.navbar-brand {
   background-color: lightslategray;
   padding: 20px;
   font-weight: 800;
-  right: -235px;
+  right: 0px;
   border-radius: 5px;
 }
 #zaloguj:hover{
