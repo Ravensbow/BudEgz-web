@@ -17,13 +17,15 @@ namespace Projekt1.Controllers
             return View();
         }
         [HttpPost]
-        public string Index( EgzaminModel em)
+        public void Index( EgzaminModel Em)
         {
-            return em.LiczbaPytan.ToString();
+            RedirectToAction("Test",new {em=Em });
+
         }
-        public string Test(EgzaminModel em)
+        public IActionResult Test(EgzaminModel em)
         {
-            return em.LiczbaPytan.ToString();
+            List<Pytanie> listaPytan =new List<Pytanie>(){new Pytanie(),new Pytanie(),new Pytanie(),new Pytanie(), new Pytanie()}; 
+            return View(listaPytan);
         }
     }
 }

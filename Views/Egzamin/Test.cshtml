@@ -1,0 +1,35 @@
+@model List<Projekt1.Models.Pytanie>
+@{
+    int index=0;
+}
+<div id="testContainer">
+    <div class="sekcjaBoczna" style="font-size: 32px;">
+            <p>1/30</p>
+            <p>00:00</p>
+            <p>00:00</p>
+            <button id="bNastepne">Nastepne</button>  
+    </div>
+    
+    @for(int i=0;i<Model.Count;i++){
+    <div id=@string.Format("pytanie{0}",i) class="pytanie">
+        
+        <div id= @string.Format("sekcjaPytanie{0}",i) class="sekcjaPytania">
+            <div id=@string.Format("sekcjaTresci{0}",i) class="sekcjaTresci">
+                @Html.DisplayTextFor(m=>m[i].Tresc)
+                <hr/>
+            </div>
+            <div id=@string.Format("sekcjaOdpowiedzi{0}",i) >
+                @foreach (string item in Model[i].Odpowiedzs)
+                {
+                 <div id="@string.Format("odpowiedz{0}",index)" class="odpowiedz">
+                    @item
+                </div>
+                index++;   
+                }
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>  
+    }
+    
+</div>
