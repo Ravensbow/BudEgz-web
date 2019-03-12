@@ -19,7 +19,7 @@ namespace Projekt1.Controllers
         [HttpPost]
         public IActionResult Index( EgzaminModel Em)
         {
-           return RedirectToAction("Test","Egzamin",new {em=Em });
+           return RedirectToActionPermanent("Test","Egzamin",new {em=Em });
 
         }
         public IActionResult Test(EgzaminModel em)

@@ -14,7 +14,12 @@ namespace Projekt1.Controllers
         {
             return View();
         }
-
+        
+        [HttpPost]
+        public string Login(LoginView lv)
+        {
+           return lv.Login;
+        }
         public IActionResult Privacy()
         {
             User user = new User(){Id=1,Nick="TwojStary",Password="pijany"};

@@ -12,49 +12,38 @@
     </div> 
 </div>
 <div class="boble">
-    @using (Html.BeginForm("Egzamin","Index",FormMethod.Post)){
-    
-    <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th colspan="2" align="center">Wybierz:</th>
-            </tr>
-             <tr>
-                <td>
-                    @Html.DisplayNameFor(m=>m.Kategoria)
-                </td>
-                <td>
-                    @Html.DropDownListFor(m=>m.Kategoria,new SelectList(ViewBag.ListaPytan))  
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(m=>m.LiczbaPytan)
-                </td>
-                <td>
-                    @Html.EditorFor(m=>m.LiczbaPytan)           
-                </td>
-            </tr>
-            <tr>
-                <td> 
-                    @Html.DisplayNameFor(m => m.ShowAnswer)
-                </td>
-                <td>
-                    @Html.EditorFor(m => m.ShowAnswer)
-                </td>
-            </tr>
-            <tr>
-                <td> 
-                    @Html.DisplayNameFor(m => m.TimePytanie)
-                </td>
-                <td>
-                   @Html.EditorFor(m => m.TimePytanie) min
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Przejdz do egzaminu"/></td>
-            </tr>
-        </table>
-}
+    @using (Html.BeginForm("Index","Egzamin",FormMethod.Post)){
+        
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">@Html.DisplayNameFor(m=>m.Kategoria)</span>
+                </div>
+            @Html.DropDownListFor(m=>m.Kategoria,new SelectList(ViewBag.ListaPytan),new {@class="btn btn-outline-secondary dropdown-toggle"})
+            </div>
 
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">@Html.DisplayNameFor(m=>m.LiczbaPytan)</span>
+                </div>
+                @Html.EditorFor(m=>m.LiczbaPytan,new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">@Html.DisplayNameFor(m=>m.ShowAnswer)</span>
+                </div>
+                @Html.EditorFor(m=>m.ShowAnswer,new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">@Html.DisplayNameFor(m=>m.TimePytanie)</span>
+                </div>
+                @Html.EditorFor(m=>m.TimePytanie,new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Przejdz do egzaminu"/>
+        
+
+    }
 </div>

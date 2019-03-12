@@ -1,0 +1,29 @@
+@model Projekt1.Models.LoginView
+<div id="loginPopUp" >
+   @using (Html.BeginForm("Login","Home",FormMethod.Post)){
+        <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Login</span>
+                </div>
+                <input type="text" asp-for="Login"  class="form-control"/>
+                
+        </div>
+        <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Hasło</span>
+                </div>
+                <input type="password" asp-for="Haslo"  class="form-control"/>
+                
+        </div>
+        <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"  id="inputGroup-sizing-default">Zapamiętać?</span>
+                </div>
+                <input type="checkbox" asp-for="Zapamietac"  class="form-control"/>
+                
+        </div>
+        <div>
+            <input type="submit" value="Zaloguj" class="btn btn-primary"/>
+        </div>                 
+    }
+</div>
