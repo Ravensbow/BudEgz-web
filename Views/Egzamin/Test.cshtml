@@ -1,6 +1,7 @@
-@model List<Projekt1.Models.Pytanie>
+@model IEnumerable<Projekt1.Data.Entities.Question>
 @{
-    int index=0;
+    int index1=0;
+    int index2=0;
 }
 <div id="testContainer">
     <div class="sekcjaBoczna" style="font-size: 32px;">
@@ -10,26 +11,27 @@
             <button id="bNastepne" class="btn btn-dark">Nastepne</button>  
     </div>
     
-    @for(int i=0;i<Model.Count;i++){
-    <div id=@string.Format("pytanie{0}",i) class="pytanie">
+    @foreach(var pytanie in Model){
+    <div id=@string.Format("pytanie{0}",index1) class="pytanie">
         
-        <div id= @string.Format("sekcjaPytanie{0}",i) class="sekcjaPytania">
-            <div id=@string.Format("sekcjaTresci{0}",i) class="sekcjaTresci">
-                @Html.DisplayTextFor(m=>m[i].Tresc)
+        <div id= @string.Format("sekcjaPytanie{0}",index1) class="sekcjaPytania">
+            <div id=@string.Format("sekcjaTresci{0}",index1) class="sekcjaTresci">
+                @Html.DisplayTextFor(m=>pytanie.Content)
                 <hr/>
             </div>
-            <div id=@string.Format("sekcjaOdpowiedzi{0}",i) >
-                @foreach (string item in Model[i].Odpowiedzs)
+            <div id=@string.Format("sekcjaOdpowiedzi{0}",index1) >
+                @foreach (var item in pytanie.Answers)
                 {
-                 <div id="@string.Format("odpowiedz{0}",index)" class="odpowiedz">
-                    @item
+                 <div id="@string.Format("odpowiedz{0}",index2)" class="odpowiedz">
+                    @item.Content
                 </div>
-                index++;   
+                index2++;   
                 }
             </div>
         </div>
         <div style="clear: both;"></div>
-    </div>  
+    </div> 
+    index1++;
     }
     
 </div>

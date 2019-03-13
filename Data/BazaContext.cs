@@ -5,7 +5,17 @@ namespace Projekt1.Data
 {
     public class BazaContext : DbContext
     {
-        public DbSet<Product> Products{get;set;}
-        public DbSet<Order> Orders { get; set; }
+        public BazaContext(DbContextOptions<BazaContext> options) : base(options)
+        {
+            
+        }
+        public DbSet<Question> Questions{get;set;}
+        public DbSet<Category> Categorys{get;set;}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<Question>().HasData()
+        }
     }
 }

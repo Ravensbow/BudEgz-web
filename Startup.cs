@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Projekt1.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Projekt1
 {
@@ -25,7 +26,12 @@ namespace Projekt1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BazaContext>();
+            services.AddDbContext<BazaContext>(cfg => 
+            {
+                cfg.UseSqlServer(Configuration.GetConnectionString("BazaConnectionString"));
+            });
+
+            services.AddTransient<BazaSeeder>();
             
             services.Configure<CookiePolicyOptions>(options =>
             {

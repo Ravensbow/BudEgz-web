@@ -1,0 +1,44 @@
+[{"Content":"Jak mam na imie?",
+    "Answers":[
+        {"Content":"Jakub","Correctness":true},
+        {"Content":"Patryk","Correctness":false},
+        {"Content":"Albert","Correctness":false}
+],"Categorys":[
+        {"Name":"Imionologia"},
+        {"Name":"Moja osoba"},
+        {"Name":"Nazewnictwo"}
+]},
+
+{"Content":"Ile jest wojewodztw?",
+    "Answers":[
+        {"Content":"12","Correctness":true},
+        {"Content":"15","Correctness":false},
+        {"Content":"11","Correctness":false}
+],"Categorys":[
+        {"Name":"Geografia"},
+        {"Name":"Polska"},
+        {"Name":"Administracja"}
+]},
+
+{"Content":"Jaki ptak jest drapiezny?",
+    "Answers":[
+        {"Content":"Sokol","Correctness":true},
+        {"Content":"Wrobel","Correctness":false},
+        {"Content":"Grzywacz","Correctness":false}
+],"Categorys":[
+        {"Name":"Ornitologia"},
+        {"Name":"Zwierzeta"},
+        {"Name":"Przyroda"}
+]},
+
+{"Content":"W ktorym roku byla bitwa pod Grunwaldem?",
+    "Answers":[
+        {"Content":"1410","Correctness":true},
+        {"Content":"966","Correctness":false},
+        {"Content":"996","Correctness":false}
+],"Categorys":[
+        {"Name":"Historia"},
+        {"Name":"Wojskowosc"},
+        {"Name":"Polska"}
+]}
+]
