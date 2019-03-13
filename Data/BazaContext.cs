@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Projekt1.Data.Entities;
 
-namespace Projekt1.Views.Data
+namespace Projekt1.Data
 {
     public class BazaContext : DbContext
     {
