@@ -7,23 +7,26 @@ using Microsoft.AspNetCore.Mvc;
 using Projekt1.Models;
 using Projekt1.Data;
 using Microsoft.EntityFrameworkCore; 
+using Projekt1.Data.Entities;
+
 
 
 namespace Projekt1.Controllers
 {
     public class EgzaminController : Controller
-    {
-        private readonly BazaContext _context;
-        public EgzaminController(BazaContext context)
-        {
-            _context = context;
+    {       
+        private readonly IBazaRepository repository;
 
+        public EgzaminController(IBazaRepository repository)
+        {
+            this.repository = repository;
         }
         public IActionResult Index()
         {
-            ViewBag.ListaPytan= _context.Categorys.Distinct().ToList().Select(z=>z.Name).ToList();
+            //ViewBag.ListaPytan= _context.Categorys.Distinct().ToList().Select(z=>z.Name).ToList();
             //ViewBag.ListaPytan = new List<string>() { "Mosty", "Beton", "Asfalt", "Fundamentalizm", "Ziemniaki" };
-            return View();
+            ViewBag.ListaPytan=repository.GetAllCategoryName();
+            return View(new EgzaminModel{TimePytanie=90,LiczbaPytan=20});
         }
         [HttpPost]
         public IActionResult Index(EgzaminModel Em)
@@ -33,8 +36,7 @@ namespace Projekt1.Controllers
         }
         public IActionResult Test(EgzaminModel em)
         {
-            var results = _context.Questions.Include(a => a.Answers).ToList();
-            List<Pytanie> listaPytan = new List<Pytanie>() { new Pytanie(), new Pytanie(), new Pytanie(), new Pytanie(), new Pytanie() };
+            var results = repository.GetAllQuestion();
             return View(results);
         }
     }

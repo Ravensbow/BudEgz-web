@@ -32,6 +32,7 @@ namespace Projekt1
             });
 
             services.AddTransient<BazaSeeder>();
+            services.AddScoped<IBazaRepository,BazaRepository>();
             
             services.Configure<CookiePolicyOptions>(options =>
             {
