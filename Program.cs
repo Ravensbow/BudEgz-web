@@ -29,7 +29,7 @@ namespace Projekt1
             using(var scope = scopeFactory.CreateScope())
             {
                 var seeder = scope.ServiceProvider.GetService<BazaSeeder>();
-                seeder.Seed();
+                seeder.Seed().Wait();
             }
         }
 

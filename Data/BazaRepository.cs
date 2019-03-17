@@ -13,6 +13,11 @@ namespace Projekt1.Data
             this.ctx = ctx;
         }
 
+        public void AddEntity(object model)
+        {
+            ctx.Add(model);
+        }
+
         public IEnumerable<Category> GetAllCategory()
         {
             return ctx.Categorys.ToList();
@@ -27,6 +32,7 @@ namespace Projekt1.Data
         {
             return ctx.Questions
                 .Include(q =>q.Answers)
+                .Include( q => q.Categorys)
                 .OrderBy(p=>p.Content)
                 .ToList();
             
@@ -40,6 +46,17 @@ namespace Projekt1.Data
             
             
         }
+
+        public Category GetCategoryById(int id)
+        {
+            return ctx.Categorys.Find(id);
+        }
+
+        public Question GetQuestionById(int id)
+        {
+             return ctx.Questions.Include( a => a.Answers).Include( c => c.Categorys).Where( a => a.Id==id).FirstOrDefault();
+        }
+
         public bool SaveAll()
         {
             return ctx.SaveChanges() >0;

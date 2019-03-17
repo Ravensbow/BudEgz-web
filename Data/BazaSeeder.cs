@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 using Projekt1.Data.Entities;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System;
 
 namespace Projekt1.Data
 {
@@ -12,16 +15,36 @@ namespace Projekt1.Data
     {
         private readonly BazaContext _ctx;
         private readonly IHostingEnvironment _hosting;
+        private readonly UserManager<StoreUser> _userManager;
 
-        public BazaSeeder(BazaContext ctx, IHostingEnvironment hosting )
+        public BazaSeeder(BazaContext ctx, IHostingEnvironment hosting, UserManager<StoreUser> userManager )
         {
             _ctx = ctx;
             _hosting = hosting;
+            _userManager=userManager;
         }
 
-        public void Seed()
+        public async Task Seed()
         {
             _ctx.Database.EnsureCreated();
+
+            StoreUser user = await _userManager.FindByEmailAsync("walkoskuba@gmail.com");
+
+            if(user == null)
+            {
+                user = new StoreUser()
+                {
+                    FirstName="Jakub",
+                    LastName="Walkowski",
+                    Email="walkoskuba@gmail.com",
+                    UserName="walkoskuba@gmail.com"
+                };
+
+                var result = await _userManager.CreateAsync(user,"Placek.121");
+                if(result != IdentityResult.Success)
+                    throw new InvalidOperationException("Could not create new user in seeder!");
+            }
+
             if(!_ctx.Questions.Any())
             {
                 //Przykladowa zawartosc

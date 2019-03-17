@@ -20,6 +20,7 @@ namespace Projekt1.Controllers
         {
             this.repository = repository;
         }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -30,6 +31,19 @@ namespace Projekt1.Controllers
                 return BadRequest($"Failed to load Categories: {ex}");
             }
         }
+        [HttpGet("{id:int}")]
+        public IActionResult Get(int id)
+        {
+            try{
+                var cat= repository.GetCategoryById(id);
+                if(cat!=null) return Ok(cat);
+                else return NotFound();
+            }
+            catch(Exception ex){
+                return BadRequest($"Failed to load category({id}): {ex}");
+            }
+        }
+
 
 
     }

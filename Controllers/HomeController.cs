@@ -18,7 +18,7 @@ namespace Projekt1.Controllers
         [HttpPost]
         public string Login(LoginView lv)
         {
-           return lv.Login;
+           return lv.UserName;
         }
         public IActionResult Privacy()
         {

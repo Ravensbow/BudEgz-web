@@ -8,11 +8,11 @@ using Projekt1.Models;
 using Projekt1.Data;
 using Microsoft.EntityFrameworkCore; 
 using Projekt1.Data.Entities;
-
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Projekt1.Controllers
 {
+    [Authorize]
     public class EgzaminController : Controller
     {       
         private readonly IBazaRepository repository;

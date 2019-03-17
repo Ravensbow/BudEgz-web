@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Projekt1.Data;
 using Microsoft.EntityFrameworkCore;
+using Projekt1.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Projekt1
 {
@@ -26,6 +28,13 @@ namespace Projekt1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<StoreUser, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+                 
+            })
+              .AddEntityFrameworkStores<BazaContext>();
+
             services.AddDbContext<BazaContext>(cfg => 
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("BazaConnectionString"));
@@ -61,6 +70,7 @@ namespace Projekt1
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>

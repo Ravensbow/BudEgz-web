@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Projekt1.Data.Entities;
 
 namespace Projekt1.Data
 {
-    public class BazaContext : DbContext
+    public class BazaContext : IdentityDbContext<StoreUser>
     {
         public BazaContext(DbContextOptions<BazaContext> options) : base(options)
         {
