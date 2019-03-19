@@ -36,8 +36,8 @@ namespace Projekt1.Controllers
         }
         public IActionResult Test(EgzaminModel em)
         {
-            var results = repository.GetAllQuestion();
-            return View(results);
+            
+            return View();
         }
     }
 }
