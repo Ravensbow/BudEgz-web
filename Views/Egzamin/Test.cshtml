@@ -1,37 +1,11 @@
 @model IEnumerable<Projekt1.Data.Entities.Question>
-@{
-    int index1=0;
-    int index2=0;
+@section Scripts{
+    <script src="~/clientapp/dist/runtime.js"></script>
+    <script src="~/clientapp/dist/polyfills.js"></script>
+    <script src="~/clientapp/dist/styles.js"></script>
+    <script src="~/clientapp/dist/vendor.js"></script>
+    <script src="~/clientapp/dist/main.js"></script>
 }
-<div id="testContainer">
-    <div class="sekcjaBoczna" style="font-size: 32px;">
-            <p>1/30</p>
-            <p>00:00</p>
-            <p>00:00</p>
-            <button id="bNastepne" class="btn btn-dark">Nastepne</button>  
-    </div>
-    
-    @foreach(var pytanie in Model){
-    <div id=@string.Format("pytanie{0}",index1) class="pytanie">
-        
-        <div id= @string.Format("sekcjaPytanie{0}",index1) class="sekcjaPytania">
-            <div id=@string.Format("sekcjaTresci{0}",index1) class="sekcjaTresci">
-                @Html.DisplayTextFor(m=>pytanie.Content)
-                <hr/>
-            </div>
-            <div id=@string.Format("sekcjaOdpowiedzi{0}",index1) >
-                @foreach (var item in pytanie.Answers)
-                {
-                 <div id="@string.Format("odpowiedz{0}",index2)" class="odpowiedz">
-                    @item.Content
-                </div>
-                index2++;   
-                }
-            </div>
-        </div>
-        <div style="clear: both;"></div>
-    </div> 
-    index1++;
-    }
-    
-</div>
+<h1>Egzamin</h1>
+<the-test></the-test>
+<app-root></app-root>
