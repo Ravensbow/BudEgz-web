@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { QuestionList} from "ClientApp/app/test/questionsList.component";
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuestionList
   ],
   imports: [
     BrowserModule,
