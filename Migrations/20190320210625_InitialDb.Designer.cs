@@ -10,8 +10,8 @@ using Projekt1.Data;
 namespace Projekt1.Migrations
 {
     [DbContext(typeof(BazaContext))]
-    [Migration("20190314215446_Identity")]
-    partial class Identity
+    [Migration("20190320210625_InitialDb")]
+    partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

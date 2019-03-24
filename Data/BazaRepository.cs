@@ -25,7 +25,7 @@ namespace Projekt1.Data
 
         public IEnumerable<string> GetAllCategoryName()
         {
-            return ctx.Categorys.Distinct().ToList().Select(c => c.Name).ToList();
+            return ctx.Categorys.ToList().Select(c => c.Name).Distinct().ToList();
         }
 
         public IEnumerable<Question> GetAllQuestion()
@@ -43,8 +43,14 @@ namespace Projekt1.Data
                 .Where(q => q.Categorys
                     .Select(c =>c.Name)
                     .Contains(category) );
-            
-            
+        }
+        public IEnumerable<Question> GetRandomQuestionFromCategory(string category,int ilosc)
+        {
+            //var a = from q in ctx.Questions orderby SqlFunctions.rAND
+            return ctx.Questions
+                .Where(q => q.Categorys
+                    .Select(c =>c.Name)
+                    .Contains(category) );
         }
 
         public Category GetCategoryById(int id)

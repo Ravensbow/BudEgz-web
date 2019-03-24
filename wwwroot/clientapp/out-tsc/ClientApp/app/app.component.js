@@ -7,7 +7,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = tslib_1.__decorate([
         Component({
             selector: 'the-test',
-            template: "\n    <div style=\"text-align:center\">\n      <h1>\n        Welcome aaa {{title}}!\n      </h1>\n    </div>\n  ",
+            templateUrl: "./app.component.html",
             styles: []
         })
     ], AppComponent);

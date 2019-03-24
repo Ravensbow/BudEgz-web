@@ -1,6 +1,7 @@
 import * as tslib_1 from "tslib";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { QuestionList } from "ClientApp/app/test/questionsList.component";
 import { AppComponent } from './app.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -8,7 +9,8 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib_1.__decorate([
         NgModule({
             declarations: [
-                AppComponent
+                AppComponent,
+                QuestionList
             ],
             imports: [
                 BrowserModule,

@@ -54,6 +54,8 @@ a.navbar-brand {
   font-weight: 800;
   right: 0px;
   border-radius: 5px;
+  min-width: 165px;
+  z-index: 10000;
 }
 #zaloguj:hover{
   cursor: pointer;

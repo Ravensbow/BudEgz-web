@@ -1,29 +1,31 @@
 @model Projekt1.Models.LoginView
 <div id="loginPopUp" >
-   @using (Html.BeginForm("Login","Account",FormMethod.Post)){
+   @using (Html.BeginForm("Login","Account",FormMethod.Post))
+   {
         <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Login</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user"></i></span>
                 </div>
                 <input type="text" asp-for="UserName"  class="form-control"/>
                 
         </div>
         <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Hasło</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-key"></i></span>
                 </div>
                 <input type="password" asp-for="Password"  class="form-control"/>
                 
         </div>
-        <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"  id="inputGroup-sizing-default">Zapamiętać?</span>
+        <div class="input-group input-group-sm mb-3">                
+                 <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" asp-for="RememberMe"  />
+                    </div>
                 </div>
-                <input type="checkbox" asp-for="RememberMe"  class="form-control"/>
-                
+                <span class="form-control" aria-label="Text input with radio button">Zapamietac?</span>   
         </div>
         <div>
-            <input type="submit" value="Zaloguj" class="btn btn-primary"/>
+            <input type="submit" value="Zaloguj" class="btn btn-success btn-sm col align-self-end"/>
         </div>                 
     }
 </div>
