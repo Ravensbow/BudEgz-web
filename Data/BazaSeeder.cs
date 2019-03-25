@@ -17,11 +17,11 @@ namespace Projekt1.Data
         private readonly IHostingEnvironment _hosting;
         private readonly UserManager<StoreUser> _userManager;
 
-        public BazaSeeder(BazaContext ctx, IHostingEnvironment hosting, UserManager<StoreUser> userManager )
+        public BazaSeeder(BazaContext ctx, IHostingEnvironment hosting, UserManager<StoreUser> userManager)
         {
             _ctx = ctx;
             _hosting = hosting;
-            _userManager=userManager;
+            _userManager = userManager;
         }
 
         public async Task Seed()
@@ -30,26 +30,26 @@ namespace Projekt1.Data
 
             StoreUser user = await _userManager.FindByEmailAsync("walkoskuba@gmail.com");
 
-            if(user == null)
+            if (user == null)
             {
                 user = new StoreUser()
                 {
-                    FirstName="Jakub",
-                    LastName="Walkowski",
-                    Email="walkoskuba@gmail.com",
-                    UserName="walkoskuba@gmail.com"
+                    FirstName = "Jakub",
+                    LastName = "Walkowski",
+                    Email = "walkoskuba@gmail.com",
+                    UserName = "walkoskuba@gmail.com"
                 };
 
-                var result = await _userManager.CreateAsync(user,"Placek.121");
-                if(result != IdentityResult.Success)
+                var result = await _userManager.CreateAsync(user, "Placek.121");
+                if (result != IdentityResult.Success)
                     throw new InvalidOperationException("Could not create new user in seeder!");
             }
 
-            if(!_ctx.Questions.Any())
+            if (!_ctx.Questions.Any())
             {
                 //Przykladowa zawartosc
-                var path = Path.Combine(_hosting.ContentRootPath,"Data/quest.json");
-                var json= File.ReadAllText(path);
+                var path = Path.Combine(_hosting.ContentRootPath, "Data/quest.json");
+                var json = File.ReadAllText(path);
                 var questions = JsonConvert.DeserializeObject<IEnumerable<Question>>(json);
                 _ctx.Questions.AddRange(questions);
 

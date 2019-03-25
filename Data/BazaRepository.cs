@@ -31,26 +31,26 @@ namespace Projekt1.Data
         public IEnumerable<Question> GetAllQuestion()
         {
             return ctx.Questions
-                .Include(q =>q.Answers)
-                .Include( q => q.Categorys)
-                .OrderBy(p=>p.Content)
+                .Include(q => q.Answers)
+                .Include(q => q.Categorys)
+                .OrderBy(p => p.Content)
                 .ToList();
-            
+
         }
         public IEnumerable<Question> GetAllQuestionFromCategory(string category)
         {
             return ctx.Questions
                 .Where(q => q.Categorys
-                    .Select(c =>c.Name)
-                    .Contains(category) );
+                    .Select(c => c.Name)
+                    .Contains(category));
         }
-        public IEnumerable<Question> GetRandomQuestionFromCategory(string category,int ilosc)
+        public IEnumerable<Question> GetRandomQuestionFromCategory(string category, int ilosc)
         {
             //var a = from q in ctx.Questions orderby SqlFunctions.rAND
             return ctx.Questions
                 .Where(q => q.Categorys
-                    .Select(c =>c.Name)
-                    .Contains(category) );
+                    .Select(c => c.Name)
+                    .Contains(category));
         }
 
         public Category GetCategoryById(int id)
@@ -60,12 +60,12 @@ namespace Projekt1.Data
 
         public Question GetQuestionById(int id)
         {
-             return ctx.Questions.Include( a => a.Answers).Include( c => c.Categorys).Where( a => a.Id==id).FirstOrDefault();
+            return ctx.Questions.Include(a => a.Answers).Include(c => c.Categorys).Where(a => a.Id == id).FirstOrDefault();
         }
 
         public bool SaveAll()
         {
-            return ctx.SaveChanges() >0;
+            return ctx.SaveChanges() > 0;
         }
     }
 }

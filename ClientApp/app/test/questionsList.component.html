@@ -1,5 +1,22 @@
 <div class="row">
-    <ul>
-        <li *ngFor="let q of questions"> {{q.content}}</li>
-    </ul>
+    <div class="col-5 p-4">
+        <p [textContent]="czas"></p>
+    </div>
+    <div class="col-7" *ngIf="egzamin==true; then isEgzamin; else noEgzamin">
+       
+    </div>
+
+    <ng-template #isEgzamin>
+        <p>{{questions[indexPytanie].content}}</p>
+        <ul>
+            <li *ngFor="let a of questions[indexPytanie].answers">
+                {{a.content}}
+            </li>
+        </ul>
+    </ng-template>
+    <ng-template #noEgzamin>
+        Koniec Egzaminu
+    </ng-template>
+    
+    
 </div>
