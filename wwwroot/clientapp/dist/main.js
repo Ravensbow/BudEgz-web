@@ -80,6 +80,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ClientApp/app/test/questionsList.component */ "./app/test/questionsList.component.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
+/* harmony import */ var _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./wynik/wynik.component */ "./app/wynik/wynik.component.ts");
+
 
 
 
@@ -92,7 +94,8 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"]
+                ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"],
+                _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__["WynikComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -115,7 +118,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-5 p-4\">\r\n        <p [textContent]=\"czas\"></p>\r\n    </div>\r\n    <div class=\"col-7\" *ngIf=\"egzamin==true; then isEgzamin; else noEgzamin\">\r\n       \r\n    </div>\r\n\r\n    <ng-template #isEgzamin>\r\n        <p>{{questions[indexPytanie].content}}</p>\r\n        <ul>\r\n            <li *ngFor=\"let a of questions[indexPytanie].answers\">\r\n                {{a.content}}\r\n            </li>\r\n        </ul>\r\n    </ng-template>\r\n    <ng-template #noEgzamin>\r\n        Koniec Egzaminu\r\n    </ng-template>\r\n    \r\n    \r\n</div>"
+module.exports = "<div id=\"testContainer\">\r\n\r\n    <div class=\"pytanie\" *ngIf=\"egzamin==true; then isEgzamin; else noEgzamin\">\r\n        \r\n    </div>\r\n\r\n    <ng-template #isEgzamin>\r\n        \r\n        <div class=\"sekcjaBoczna\" style=\"font-size: 32px;\">\r\n            <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\r\n            <p>{{czas}}</p>\r\n            <p>{{czasCalosci}}</p>\r\n            <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button>  \r\n        </div>\r\n\r\n        <div class=\"sekcjaPytania\">\r\n            \r\n            <div class=\"sekcjaTresci\">\r\n                <p>{{questions1[indexPytanie].content}}</p>\r\n                <hr/>\r\n            </div>\r\n\r\n            <div>\r\n                <div class=\"odpowiedz\" *ngFor=\"let a of questions1[indexPytanie].answers\" (click)=\"AddAnswerTaken(a,czas)\">\r\n                    {{a.content}}\r\n                </div>\r\n            </div>\r\n\r\n        </div>        \r\n    </ng-template>\r\n\r\n    <ng-template #noEgzamin>\r\n        <div>\r\n            <div *ngFor=\"let i of createRange(questions1.length);let myIn=index;\">\r\n                \r\n                <h3>{{questions1[myIn].content}}</h3>\r\n                <div *ngFor=\"let a of questions1[myIn].answers\">\r\n                    \r\n                    <div *ngIf=\"a.correctnes==true\" class=\"card bg-secondary p-4 text-light mb-5\">\r\n                        \r\n                        <p style=\"color: lightgreen; font-weight: 700;\">Poprawna odpowiedź: {{a.content}}</p>\r\n                        <p>Twoja odpowiedz: {{answers[myIn].content}}</p>\r\n                        <p>Czas udzielania odpowiedzi: {{answers[myIn].time}}</p>\r\n\r\n                    </div>\r\n\r\n                </div>\r\n                \r\n            </div>\r\n        </div>\r\n    </ng-template>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -135,67 +138,66 @@ __webpack_require__.r(__webpack_exports__);
 
 var QuestionList = /** @class */ (function () {
     function QuestionList() {
-        this.questions = [{
-                content: "Jak mam na imie",
-                answers: [{
-                        content: "Jakub",
-                        correctness: true
-                    }, {
-                        content: "Patryk",
-                        correctness: false
-                    }, {
-                        content: "Andrzej",
-                        correctness: false
-                    }]
-            }, {
-                content: "Ile mamy wojewodztw",
-                answers: [{
-                        content: "10",
-                        correctness: true
-                    }, {
-                        content: "12",
-                        correctness: false
-                    }, {
-                        content: "11",
-                        correctness: false
-                    }]
-            }];
-        this.czas = 30;
+        this.questions1 = new Array(new Question("Jak mam na imie", new Array(new Answer("Jakub", true), new Answer("Patryk", false), new Answer("Andrzej", false))), new Question("Ile mamy wojewodzctw?", new Array(new Answer("12", false), new Answer("23", false), new Answer("18", true))), new Question("Czy mozna zabic?", new Array(new Answer("Jak najbardziej", false), new Answer("To zależy", true), new Answer("Nie", false))));
+        this.CZAS = 30;
+        this.czasCalosci = 0;
+        this.answers = new Array();
     }
-    QuestionList.prototype.coSekunda = function () {
-        var _this = this;
-        var czasinterwal = setInterval(function () {
-            _this.czas--;
-            if (_this.czas <= 0) {
-                clearInterval(czasinterwal);
-                if (_this.indexPytanie < _this.questions.length - 1) {
-                    _this.indexPytanie++;
-                    _this.czas = 30;
-                    _this.coSekunda();
-                }
-                else
-                    _this.egzamin = false;
-            }
-        }, 1000);
-    };
     QuestionList.prototype.ngOnInit = function () {
         this.indexPytanie = 0;
         this.egzamin = true;
-        this.czas = 30;
-        // let czasinterwal=setInterval(()=>{
-        //     this.czas--;
-        //     if(this.czas<=0){
-        //         clearInterval(czasinterwal);
-        //         if(this.indexPytanie<this.questions.length-1)
-        //         {
-        //             this.indexPytanie++;
-        //             this.czas=30;
-        //             czasinterwal.ref();
-        //         }
-        //         else this.egzamin=false;
-        //     }
-        // },1000)
+        this.czas = this.CZAS;
         this.coSekunda();
+        this.StartMainClock();
+    };
+    QuestionList.prototype.createRange = function (number) {
+        var item = [];
+        for (var i = 1; i <= number; i++) {
+            item.push(i);
+        }
+        return item;
+    };
+    QuestionList.prototype.onEndExam = function () {
+        this.egzamin = false;
+        clearInterval(this.czasCalosciInterwal);
+    };
+    QuestionList.prototype.coSekunda = function () {
+        var _this = this;
+        this.czasinterwal = setInterval(function () {
+            _this.czas--;
+            if (_this.czas <= 0) {
+                clearInterval(_this.czasinterwal);
+                if (_this.indexPytanie < _this.questions1.length - 1) {
+                    _this.answers.push(new Answer("Pominieto", false));
+                    _this.indexPytanie++;
+                    _this.czas = _this.CZAS;
+                    _this.coSekunda();
+                }
+                else {
+                    _this.answers.push(new Answer("Pominieto", false));
+                    _this.onEndExam();
+                }
+            }
+        }, 1000);
+    };
+    QuestionList.prototype.StartMainClock = function () {
+        var _this = this;
+        this.czasCalosciInterwal = setInterval(function () {
+            _this.czasCalosci++;
+        }, 1000);
+    };
+    QuestionList.prototype.AddAnswerTaken = function (answer, czas) {
+        answer.time = this.CZAS - czas;
+        this.answers.push(answer);
+        clearInterval(this.czasinterwal);
+        if (this.indexPytanie < this.questions1.length) {
+            this.indexPytanie++;
+            this.czas = this.CZAS;
+            this.coSekunda();
+        }
+        else {
+            this.onEndExam();
+        }
     };
     QuestionList = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -204,6 +206,78 @@ var QuestionList = /** @class */ (function () {
         })
     ], QuestionList);
     return QuestionList;
+}());
+
+var Question = /** @class */ (function () {
+    function Question(content, answers) {
+        this.content = content;
+        this.answers = answers;
+    }
+    return Question;
+}());
+var Answer = /** @class */ (function () {
+    function Answer(_content, _corr, _time) {
+        if (_time === void 0) { _time = 0; }
+        this.content = _content;
+        this.correctnes = _corr;
+        this.time = _time;
+    }
+    return Answer;
+}());
+
+
+/***/ }),
+
+/***/ "./app/wynik/wynik.component.css":
+/*!***************************************!*\
+  !*** ./app/wynik/wynik.component.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL3d5bmlrL3d5bmlrLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./app/wynik/wynik.component.html":
+/*!****************************************!*\
+  !*** ./app/wynik/wynik.component.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  wynik works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./app/wynik/wynik.component.ts":
+/*!**************************************!*\
+  !*** ./app/wynik/wynik.component.ts ***!
+  \**************************************/
+/*! exports provided: WynikComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WynikComponent", function() { return WynikComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+
+
+var WynikComponent = /** @class */ (function () {
+    function WynikComponent() {
+    }
+    WynikComponent.prototype.ngOnInit = function () {
+    };
+    WynikComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-wynik',
+            template: __webpack_require__(/*! ./wynik.component.html */ "./app/wynik/wynik.component.html"),
+            styles: [__webpack_require__(/*! ./wynik.component.css */ "./app/wynik/wynik.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], WynikComponent);
+    return WynikComponent;
 }());
 
 
