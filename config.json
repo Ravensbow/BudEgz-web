@@ -1,5 +1,5 @@
 {
     "ConnectionStrings": {
-        "BazaConnectionString" : "server=localhost;Database=napowaznie;Integrated Security=true;MultipleActiveResultSets=true;"
+        "BazaConnectionString" : "server=localhost;Database=napowaznie;User Id=SA;Password=Placek.121;MultipleActiveResultSets=true;"
     }
 }

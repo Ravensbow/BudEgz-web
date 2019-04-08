@@ -22,18 +22,21 @@ namespace Projekt1.Controllers
     {
         private readonly ILogger<AccountController> logger;
         private readonly SignInManager<StoreUser> signInManager;
+        private readonly UserManager<StoreUser> userManager;
 
-        public AccountController(ILogger<AccountController> logger, SignInManager<StoreUser> signInManager)
+        public AccountController(ILogger<AccountController> logger, SignInManager<StoreUser> signInManager, UserManager<StoreUser> userManager)
         {
+            this.userManager = userManager;
             this.logger = logger;
             this.signInManager = signInManager;
+            this.userManager = userManager;
         }
 
         public IActionResult Login()
         {
-            if(this.User.Identity.IsAuthenticated)
+            if (this.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
 
             return View();
@@ -41,19 +44,60 @@ namespace Projekt1.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginView model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.UserName,model.Password,model.RememberMe,false);
-                if(Request.Query.Keys.Contains("ReturnUrl"))
+                var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+                if (Request.Query.Keys.Contains("ReturnUrl"))
                 {
                     return Redirect(Request.Query["ReturnUrl"].First());
                 }
-                else{
-                    return RedirectToAction("Index","Home");
+                else
+                {
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
-            ModelState.AddModelError("","Failed to login");
+            ModelState.AddModelError("", "Failed to login");
+
+            return View();
+        }
+
+        public IActionResult Register()
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterView model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var user = new StoreUser { UserName = model.email, Email = model.email, FirstName= model.firstName, LastName = model.lastName};
+                var result = await userManager.CreateAsync(user,model.password);
+
+                if(result.Succeeded)
+                {
+                    logger.LogInformation("User create a new account.");
+
+                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    {
+                        return Redirect(Request.Query["ReturnUrl"].First());
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+
+                
+            }
+
+            ModelState.AddModelError("", "Failed to register");
 
             return View();
         }
@@ -62,13 +106,13 @@ namespace Projekt1.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            
-            if(Request.Query.Keys.Contains("ReturnUrl"))
+
+            if (Request.Query.Keys.Contains("ReturnUrl"))
             {
-                 return Redirect(Request.Query["ReturnUrl"].First());
+                return Redirect(Request.Query["ReturnUrl"].First());
             }
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

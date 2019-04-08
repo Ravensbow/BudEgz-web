@@ -42,16 +42,19 @@
                             <div class="nav-link text-dark" id="zaloguj"  >Zaloguj</div>
                             @Html.Partial("_LoginPop",new LoginView())
                         </li>
+                        <li class="nav-item" >
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register" >Zarejestruj</a>
+                        </li>
                         }
                         else
                         {
-                             <li class="nav-item "  style="position: relative;">
+                             <li class="nav-item"  style="position: relative;">
                                 <a  asp-controller="Account" asp-action="Logout" class="nav-link text-dark" id="wyloguj"  >Wyloguj</a>
                              </li>
-                        }
-                        <li class="nav-item" >
-                            <a href="#" class="nav-link text-dark" >Zarejestruj</a>
-                        </li>
+                             <li class="nav-item">
+                                <a asp-controller="Account" asp-action="Logout" class="nav-link text-info">@User.Identity.Name </a>
+                             </li>
+                        }                    
                     </ul>
                 </div>
             </div>
