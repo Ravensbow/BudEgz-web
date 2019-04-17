@@ -80,8 +80,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ClientApp/app/test/questionsList.component */ "./app/test/questionsList.component.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
-/* harmony import */ var _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./wynik/wynik.component */ "./app/wynik/wynik.component.ts");
-
 
 
 
@@ -94,8 +92,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"],
-                _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__["WynikComponent"]
+                ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -224,62 +221,6 @@ var Answer = /** @class */ (function () {
     }
     return Answer;
 }());
-
-
-/***/ }),
-
-/***/ "./app/wynik/wynik.component.css":
-/*!***************************************!*\
-  !*** ./app/wynik/wynik.component.css ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL3d5bmlrL3d5bmlrLmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./app/wynik/wynik.component.html":
-/*!****************************************!*\
-  !*** ./app/wynik/wynik.component.html ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  wynik works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./app/wynik/wynik.component.ts":
-/*!**************************************!*\
-  !*** ./app/wynik/wynik.component.ts ***!
-  \**************************************/
-/*! exports provided: WynikComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WynikComponent", function() { return WynikComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-var WynikComponent = /** @class */ (function () {
-    function WynikComponent() {
-    }
-    WynikComponent.prototype.ngOnInit = function () {
-    };
-    WynikComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-wynik',
-            template: __webpack_require__(/*! ./wynik.component.html */ "./app/wynik/wynik.component.html"),
-            styles: [__webpack_require__(/*! ./wynik.component.css */ "./app/wynik/wynik.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], WynikComponent);
-    return WynikComponent;
-}());
-
 
 
 /***/ }),

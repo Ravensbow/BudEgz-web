@@ -11,13 +11,14 @@ namespace Projekt1.Models
     public class RegisterView
     {
         [EmailAddress]
-        [Required]
+        [Required(ErrorMessage="Email jest wymagany!")]
         public string email { get; set; }
-        [Required]
+        [Required(ErrorMessage="Hasło jest wymagane!")]
+        [Password]
         public string password { get; set; }
-        [Required]
+        [Required(ErrorMessage="Imię jest wymagane!")]
         public string lastName { get; set; }
-        [Required]
+        [Required(ErrorMessage="Nazwisko jest wymagane!")]
         public string firstName { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 <div id="loginPopUp" >
    @using (Html.BeginForm("Login","Account",FormMethod.Post))
    {
+       <div asp-validation-summary="ModelOnly"></div>
         <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user"></i></span>

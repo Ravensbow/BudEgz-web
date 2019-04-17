@@ -97,7 +97,7 @@ namespace Projekt1.Controllers
                 
             }
 
-            ModelState.AddModelError("", "Failed to register");
+            ModelState.AddModelError("", "Rejestracja nieudana!");
 
             return View();
         }
@@ -114,5 +114,7 @@ namespace Projekt1.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+    
+    
     }
 }
