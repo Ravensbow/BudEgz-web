@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { QuestionList } from "ClientApp/app/test/questionsList.component";
 import { AppComponent } from './app.component';
 import { WynikComponent } from './wynik/wynik.component';
+import { AnswerComponent } from './answer/answer.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -12,7 +13,8 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 AppComponent,
                 QuestionList,
-                WynikComponent
+                WynikComponent,
+                AnswerComponent
             ],
             imports: [
                 BrowserModule,

@@ -14,4 +14,17 @@ var AppComponent = /** @class */ (function () {
     return AppComponent;
 }());
 export { AppComponent };
+var Range = /** @class */ (function () {
+    function Range() {
+    }
+    Range.Create = function (range) {
+        var item = [];
+        for (var i = 1; i <= range; i++) {
+            item.push(i);
+        }
+        return item;
+    };
+    return Range;
+}());
+export { Range };
 //# sourceMappingURL=app.component.js.map

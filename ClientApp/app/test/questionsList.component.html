@@ -1,11 +1,27 @@
 <div id="testContainer">
 
-    <div class="pytanie" *ngIf="egzamin==true; then isEgzamin; else noEgzamin">
-        
-    </div>
+    <div class="pytanie" *ngIf="egzamin==true; then isEgzamin; else noEgzamin"></div>
 
     <ng-template #isEgzamin>
-        
+
+        <div class="row">
+            <div class="col col-lg-4">
+                <p>{{indexPytanie + 1}}/{{questions1.length}}</p>
+                <p>{{czas}}</p>
+                <p>{{czasCalosci}}</p>
+                <button id="bNastepne" class="btn btn-dark">Nastepne</button> 
+            </div>
+            <div class="col col-lg-8 card p-4">
+                <div class="sekcjaTresci">
+                    <p>{{questions1[indexPytanie].content}}</p>
+                    <hr class="bg-info"/>
+                </div>
+                <div *ngFor="let a of questions1[indexPytanie].answers; let ind=index" (click)="AddAnswerTaken(a,czas)">
+                        <app-answer [answer]="a" [nr]="ind"></app-answer>
+                </div>
+            </div>
+        </div>
+        <!--
         <div class="sekcjaBoczna" style="font-size: 32px;">
             <p>{{indexPytanie + 1}}/{{questions1.length}}</p>
             <p>{{czas}}</p>
@@ -14,40 +30,21 @@
         </div>
 
         <div class="sekcjaPytania">
-            
             <div class="sekcjaTresci">
                 <p>{{questions1[indexPytanie].content}}</p>
-                <hr/>
+                <hr class="bg-info"/>
             </div>
-
-            <div>
-                <div class="odpowiedz" *ngFor="let a of questions1[indexPytanie].answers" (click)="AddAnswerTaken(a,czas)">
-                    {{a.content}}
-                </div>
+            <div *ngFor="let a of questions1[indexPytanie].answers; let ind=index" (click)="AddAnswerTaken(a,czas)">
+                    <app-answer [answer]="a" [nr]="ind"></app-answer>
             </div>
-
-        </div>        
+        </div>
+        -->
     </ng-template>
 
     <ng-template #noEgzamin>
-        <div>
-            <div *ngFor="let i of createRange(questions1.length);let myIn=index;">
-                
-                <h3>{{questions1[myIn].content}}</h3>
-                <div *ngFor="let a of questions1[myIn].answers">
-                    
-                    <div *ngIf="a.correctnes==true" class="card bg-secondary p-4 text-light mb-5">
-                        
-                        <p style="color: lightgreen; font-weight: 700;">Poprawna odpowiedź: {{a.content}}</p>
-                        <p>Twoja odpowiedz: {{answers[myIn].content}}</p>
-                        <p>Czas udzielania odpowiedzi: {{answers[myIn].time}}</p>
 
-                    </div>
+        <app-wynik [questions]="questions1" [answers]="answers"></app-wynik>
 
-                </div>
-                
-            </div>
-        </div>
     </ng-template>
 
 </div>

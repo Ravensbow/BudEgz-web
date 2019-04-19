@@ -1,4 +1,7 @@
 import {Component, OnInit} from "@angular/core";
+import { Range } from 'ClientApp/app/app.component'
+import { Question, Answer } from 'ClientApp/app/Models/test'
+
 
 @Component({
     selector: "question-list",
@@ -46,14 +49,9 @@ export class QuestionList implements OnInit
         this.StartMainClock();
     }
 
-    public createRange(number)
+    public createRange(number:number)
     {
-        let item: number[] = [];
-        for(let i =1;i<=number;i++)
-        {
-            item.push(i);
-        }
-        return item;
+        Range.Create(number);
     }
 
     public onEndExam()
@@ -80,7 +78,6 @@ export class QuestionList implements OnInit
                     this.answers.push(new Answer("Pominieto",false));
                     this.onEndExam();
                 } 
-
             }
         },1000)
     }
@@ -111,33 +108,6 @@ export class QuestionList implements OnInit
         {
             this.onEndExam();
         }
-    }
-
-    
-
+    }   
 }
-class Question
-{
-    public answers: Answer[];
-    public content: string;
 
-    constructor(content:string,answers: Answer[])
-    {
-        this.content=content;
-        this.answers=answers;
-    }
-
-}
-class Answer
-{
-    public content: string;
-    public correctnes: boolean;
-    public time:number;
-
-    constructor(_content:string,_corr:boolean,_time:number=0)
-    {
-        this.content = _content;
-        this.correctnes =  _corr;
-        this.time=_time;
-    }
-}

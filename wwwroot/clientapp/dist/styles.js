@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\walko\dot-net\Projekt1\ClientApp\styles.css */"./styles.css");
+module.exports = __webpack_require__(/*! /home/jakub/net-core/budowa/ClientApp/styles.css */"./styles.css");
 
 
 /***/ })
