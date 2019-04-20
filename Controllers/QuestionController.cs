@@ -14,16 +14,16 @@ namespace Projekt1.Controllers
     [Route("api/[Controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class ApiQuestionController : Controller
+    public class QuestionController : Controller
     {
         
         private readonly IBazaRepository repository;
-        public ApiQuestionController(IBazaRepository repository)
+        public QuestionController(IBazaRepository repository)
         {
             this.repository = repository;
         }
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("[action]")]
+        public IActionResult GetAllQuestion()
         {
             try{
                 return Ok(repository.GetAllQuestion());
@@ -34,8 +34,8 @@ namespace Projekt1.Controllers
             
         }
         
-        [HttpGet("{id:int}")]
-        public IActionResult Get(int id)
+        [HttpGet("[action]/{id:int}")]
+        public IActionResult GetQuestionById(int id)
         {
             try{
                  var que= repository.GetQuestionById(id);
@@ -44,6 +44,18 @@ namespace Projekt1.Controllers
             }
             catch(Exception ex){
                 return BadRequest($"Failed to load question({id}): {ex}");
+            }
+        }
+        [HttpGet("[action]/{category}")]
+        public IActionResult GetAllQuestionFromCategory(string category)
+        {
+            try{
+                 var que= repository.GetAllQuestionFromCategory(category);
+                if(que!=null) return Ok(que);
+                else return NotFound();
+            }
+            catch(Exception ex){
+                return BadRequest($"Failed to load question({category}): {ex}");
             }
         }
 

@@ -12,27 +12,27 @@ using Projekt1.Data.Entities;
 namespace Projekt1.Controllers
 {
     [Route("api/[Controller]")]
-    public class ApiCategoryController : Controller
+    public class CategoryController : Controller
     {
         private readonly IBazaRepository repository;
 
-        public ApiCategoryController(IBazaRepository repository)
+        public CategoryController(IBazaRepository repository)
         {
             this.repository = repository;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("[action]")]
+        public IActionResult GetAllCategoryName()
         {
             try{
-                return Ok(repository.GetAllCategory());
+                return Ok(repository.GetAllCategoryName());
             }
             catch(Exception ex){
                 return BadRequest($"Failed to load Categories: {ex}");
             }
         }
-        [HttpGet("{id:int}")]
-        public IActionResult Get(int id)
+        [HttpGet("[action]/{id:int}")]
+        public IActionResult GetCategoryById(int id)
         {
             try{
                 var cat= repository.GetCategoryById(id);

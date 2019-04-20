@@ -81,7 +81,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"input-group input-group-lg mt-4\">\n  <div class=\"input-group-prepend\">\n    <span class=\"input-group-text bg-info\" id=\"input-Group-sizing-lg\"> {{nr}}. </span>\n  </div>\n  <input type=\"text\" class=\"form-control\" [value]=\"answer.content\" disabled=\"true\">\n</div>\n"
+module.exports = "<div class=\"input-group input-group-lg mt-4\">\r\n  <div class=\"input-group-prepend\">\r\n    <span class=\"input-group-text bg-info\" id=\"input-Group-sizing-lg\"> {{nr}}. </span>\r\n  </div>\r\n  <input type=\"text\" class=\"form-control\" [value]=\"answer.content\" disabled=\"true\">\r\n</div>\r\n"
 
 /***/ }),
 
@@ -138,7 +138,7 @@ var AnswerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    \n    <question-list></question-list>\n    \n</div>"
+module.exports = "<div class=\"row\">\r\n    \r\n    <question-list></question-list>\r\n    \r\n</div>"
 
 /***/ }),
 
@@ -202,13 +202,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ClientApp/app/test/questionsList.component */ "./app/test/questionsList.component.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
-<<<<<<< HEAD
-=======
 /* harmony import */ var _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./wynik/wynik.component */ "./app/wynik/wynik.component.ts");
 /* harmony import */ var _answer_answer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./answer/answer.component */ "./app/answer/answer.component.ts");
 
 
->>>>>>> 3dc01d82029407b280ba76b2a7bbe56165b5b686
 
 
 
@@ -221,13 +218,9 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-<<<<<<< HEAD
-                ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"]
-=======
                 ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"],
                 _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__["WynikComponent"],
                 _answer_answer_component__WEBPACK_IMPORTED_MODULE_6__["AnswerComponent"]
->>>>>>> 3dc01d82029407b280ba76b2a7bbe56165b5b686
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -250,7 +243,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"testContainer\">\n\n    <div class=\"pytanie\" *ngIf=\"egzamin==true; then isEgzamin; else noEgzamin\"></div>\n\n    <ng-template #isEgzamin>\n\n        <div class=\"row\">\n            <div class=\"col col-lg-4\">\n                <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\n                <p>{{czas}}</p>\n                <p>{{czasCalosci}}</p>\n                <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button> \n            </div>\n            <div class=\"col col-lg-8 card p-4\">\n                <div class=\"sekcjaTresci\">\n                    <p>{{questions1[indexPytanie].content}}</p>\n                    <hr class=\"bg-info\"/>\n                </div>\n                <div *ngFor=\"let a of questions1[indexPytanie].answers; let ind=index\" (click)=\"AddAnswerTaken(a,czas)\">\n                        <app-answer [answer]=\"a\" [nr]=\"ind\"></app-answer>\n                </div>\n            </div>\n        </div>\n        <!--\n        <div class=\"sekcjaBoczna\" style=\"font-size: 32px;\">\n            <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\n            <p>{{czas}}</p>\n            <p>{{czasCalosci}}</p>\n            <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button>  \n        </div>\n\n        <div class=\"sekcjaPytania\">\n            <div class=\"sekcjaTresci\">\n                <p>{{questions1[indexPytanie].content}}</p>\n                <hr class=\"bg-info\"/>\n            </div>\n            <div *ngFor=\"let a of questions1[indexPytanie].answers; let ind=index\" (click)=\"AddAnswerTaken(a,czas)\">\n                    <app-answer [answer]=\"a\" [nr]=\"ind\"></app-answer>\n            </div>\n        </div>\n        -->\n    </ng-template>\n\n    <ng-template #noEgzamin>\n\n        <app-wynik [questions]=\"questions1\" [answers]=\"answers\"></app-wynik>\n\n    </ng-template>\n\n</div>"
+module.exports = "<div id=\"testContainer\">\r\n\r\n    <div class=\"pytanie\" *ngIf=\"egzamin==true; then isEgzamin; else noEgzamin\"></div>\r\n\r\n    <ng-template #isEgzamin>\r\n       \r\n        <div class=\"row\">\r\n            <div class=\"col col-lg-4 p-4 card\">\r\n                <p class=\"align-self-center\">{{indexPytanie + 1}}/{{questions1.length}}</p>\r\n                <p class=\"align-self-center\">{{czas}}</p>\r\n                <p class=\"align-self-center\">{{czasCalosci}}</p>\r\n                <button id=\"bNastepne\" class=\"btn btn-dark \">Nastepne</button> \r\n            </div>\r\n            <div class=\"col col-lg-8 card p-4\">\r\n                <div class=\"sekcjaTresci\">\r\n                    <p>{{questions1[indexPytanie].content}}</p>\r\n                    <hr class=\"bg-info\"/>\r\n                </div>\r\n                <div *ngFor=\"let a of questions1[indexPytanie].answers; let ind=index\" (click)=\"AddAnswerTaken(a,czas)\">\r\n                        <app-answer [answer]=\"a\" [nr]=\"ind\"></app-answer>\r\n                </div>\r\n            </div>\r\n        </div> \r\n    \r\n\r\n\r\n        <!-- <div class=\"sekcjaBoczna\" style=\"font-size: 32px;\">\r\n            <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\r\n            <p>{{czas}}</p>\r\n            <p>{{czasCalosci}}</p>\r\n            <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button>  \r\n        </div>\r\n\r\n        <div class=\"sekcjaPytania\">\r\n            <div class=\"sekcjaTresci\">\r\n                <p>{{questions1[indexPytanie].content}}</p>\r\n                <hr class=\"bg-info\"/>\r\n            </div>\r\n            <div *ngFor=\"let a of questions1[indexPytanie].answers; let ind=index\" (click)=\"AddAnswerTaken(a,czas)\">\r\n                    <app-answer [answer]=\"a\" [nr]=\"ind\"></app-answer>\r\n            </div>\r\n        </div> -->\r\n       \r\n    </ng-template>\r\n\r\n    <ng-template #noEgzamin>\r\n\r\n        <app-wynik [questions]=\"questions1\" [answers]=\"answers\"></app-wynik>\r\n\r\n    </ng-template>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -344,8 +337,6 @@ var QuestionList = /** @class */ (function () {
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./app/wynik/wynik.component.css":
 /*!***************************************!*\
   !*** ./app/wynik/wynik.component.css ***!
@@ -364,7 +355,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div *ngFor=\"let q of questions;let myIn=index;\">\n        \n        <h3>{{q.content}}</h3>\n        <div *ngFor=\"let a of q.answers\">\n            <div *ngIf=\"a.correctnes==true\" class=\"card bg-secondary p-4 text-light mb-5\">                \n                <p style=\"color: lightgreen; font-weight: 700;\">Poprawna odpowiedź: {{a.content}}</p>\n                <p>Twoja odpowiedz:{{answers[myIn].content}} </p>\n                <p>Czas udzielania odpowiedzi: {{answers[myIn].time}}</p>\n            </div>\n        </div>\n        \n    </div>\n</div>\n"
+module.exports = "<div>\r\n    <div *ngFor=\"let q of questions;let myIn=index;\">\r\n        \r\n        <h3>{{q.content}}</h3>\r\n        <div *ngFor=\"let a of q.answers\">\r\n            <div *ngIf=\"a.correctnes==true\" class=\"card bg-secondary p-4 text-light mb-5\">                \r\n                <p style=\"color: lightgreen; font-weight: 700;\">Poprawna odpowiedź: {{a.content}}</p>\r\n                <p>Twoja odpowiedz:{{answers[myIn].content}} </p>\r\n                <p>Czas udzielania odpowiedzi: {{answers[myIn].time}}</p>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -417,7 +408,6 @@ var WynikComponent = /** @class */ (function () {
 
 /***/ }),
 
->>>>>>> 3dc01d82029407b280ba76b2a7bbe56165b5b686
 /***/ "./environments/environment.ts":
 /*!*************************************!*\
   !*** ./environments/environment.ts ***!
@@ -479,7 +469,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/jakub/net-core/budowa/ClientApp/main.ts */"./main.ts");
+module.exports = __webpack_require__(/*! C:\Users\walko\dot-net\Projekt1\ClientApp\main.ts */"./main.ts");
 
 
 /***/ })

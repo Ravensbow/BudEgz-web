@@ -42,7 +42,7 @@ namespace Projekt1.Data
             return ctx.Questions
                 .Where(q => q.Categorys
                     .Select(c => c.Name)
-                    .Contains(category));
+                    .Contains(category)).Include(p => p.Answers).Include(p=>p.Categorys);
         }
         public IEnumerable<Question> GetRandomQuestionFromCategory(string category, int ilosc)
         {
