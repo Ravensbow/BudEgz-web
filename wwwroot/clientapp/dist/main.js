@@ -23,6 +23,114 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./app/Models/test.ts":
+/*!****************************!*\
+  !*** ./app/Models/test.ts ***!
+  \****************************/
+/*! exports provided: Question, Answer, TestSummary */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Question", function() { return Question; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Answer", function() { return Answer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestSummary", function() { return TestSummary; });
+var Question = /** @class */ (function () {
+    function Question(content, answers) {
+        this.content = content;
+        this.answers = answers;
+    }
+    return Question;
+}());
+
+var Answer = /** @class */ (function () {
+    function Answer(_content, _corr, _time) {
+        if (_time === void 0) { _time = 0; }
+        this.content = _content;
+        this.correctnes = _corr;
+        this.time = _time;
+    }
+    return Answer;
+}());
+
+var TestSummary = /** @class */ (function () {
+    function TestSummary() {
+    }
+    return TestSummary;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/answer/answer.component.css":
+/*!*****************************************!*\
+  !*** ./app/answer/answer.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2Fuc3dlci9hbnN3ZXIuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./app/answer/answer.component.html":
+/*!******************************************!*\
+  !*** ./app/answer/answer.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"input-group input-group-lg mt-4\">\n  <div class=\"input-group-prepend\">\n    <span class=\"input-group-text bg-info\" id=\"input-Group-sizing-lg\"> {{nr}}. </span>\n  </div>\n  <input type=\"text\" class=\"form-control\" [value]=\"answer.content\" disabled=\"true\">\n</div>\n"
+
+/***/ }),
+
+/***/ "./app/answer/answer.component.ts":
+/*!****************************************!*\
+  !*** ./app/answer/answer.component.ts ***!
+  \****************************************/
+/*! exports provided: AnswerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnswerComponent", function() { return AnswerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ClientApp/app/Models/test */ "./app/Models/test.ts");
+
+
+
+var AnswerComponent = /** @class */ (function () {
+    function AnswerComponent() {
+        this.nr = 0;
+        this.answer = new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_2__["Answer"]("Kuba", true);
+    }
+    AnswerComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], AnswerComponent.prototype, "nr", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_2__["Answer"])
+    ], AnswerComponent.prototype, "answer", void 0);
+    AnswerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-answer',
+            template: __webpack_require__(/*! ./answer.component.html */ "./app/answer/answer.component.html"),
+            styles: [__webpack_require__(/*! ./answer.component.css */ "./app/answer/answer.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AnswerComponent);
+    return AnswerComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./app/app.component.html":
 /*!********************************!*\
   !*** ./app/app.component.html ***!
@@ -30,7 +138,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    \r\n    <question-list></question-list>\r\n    \r\n</div>"
+module.exports = "<div class=\"row\">\n    \n    <question-list></question-list>\n    \n</div>"
 
 /***/ }),
 
@@ -38,12 +146,13 @@ module.exports = "<div class=\"row\">\r\n    \r\n    <question-list></question-l
 /*!******************************!*\
   !*** ./app/app.component.ts ***!
   \******************************/
-/*! exports provided: AppComponent */
+/*! exports provided: AppComponent, Range */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Range", function() { return Range; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 
@@ -59,6 +168,19 @@ var AppComponent = /** @class */ (function () {
         })
     ], AppComponent);
     return AppComponent;
+}());
+
+var Range = /** @class */ (function () {
+    function Range() {
+    }
+    Range.Create = function (range) {
+        var item = [];
+        for (var i = 1; i <= range; i++) {
+            item.push(i);
+        }
+        return item;
+    };
+    return Range;
 }());
 
 
@@ -80,6 +202,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ClientApp/app/test/questionsList.component */ "./app/test/questionsList.component.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
+<<<<<<< HEAD
+=======
+/* harmony import */ var _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./wynik/wynik.component */ "./app/wynik/wynik.component.ts");
+/* harmony import */ var _answer_answer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./answer/answer.component */ "./app/answer/answer.component.ts");
+
+
+>>>>>>> 3dc01d82029407b280ba76b2a7bbe56165b5b686
 
 
 
@@ -92,7 +221,13 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+<<<<<<< HEAD
                 ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"]
+=======
+                ClientApp_app_test_questionsList_component__WEBPACK_IMPORTED_MODULE_3__["QuestionList"],
+                _wynik_wynik_component__WEBPACK_IMPORTED_MODULE_5__["WynikComponent"],
+                _answer_answer_component__WEBPACK_IMPORTED_MODULE_6__["AnswerComponent"]
+>>>>>>> 3dc01d82029407b280ba76b2a7bbe56165b5b686
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -115,7 +250,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"testContainer\">\r\n\r\n    <div class=\"pytanie\" *ngIf=\"egzamin==true; then isEgzamin; else noEgzamin\">\r\n        \r\n    </div>\r\n\r\n    <ng-template #isEgzamin>\r\n        \r\n        <div class=\"sekcjaBoczna\" style=\"font-size: 32px;\">\r\n            <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\r\n            <p>{{czas}}</p>\r\n            <p>{{czasCalosci}}</p>\r\n            <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button>  \r\n        </div>\r\n\r\n        <div class=\"sekcjaPytania\">\r\n            \r\n            <div class=\"sekcjaTresci\">\r\n                <p>{{questions1[indexPytanie].content}}</p>\r\n                <hr/>\r\n            </div>\r\n\r\n            <div>\r\n                <div class=\"odpowiedz\" *ngFor=\"let a of questions1[indexPytanie].answers\" (click)=\"AddAnswerTaken(a,czas)\">\r\n                    {{a.content}}\r\n                </div>\r\n            </div>\r\n\r\n        </div>        \r\n    </ng-template>\r\n\r\n    <ng-template #noEgzamin>\r\n        <div>\r\n            <div *ngFor=\"let i of createRange(questions1.length);let myIn=index;\">\r\n                \r\n                <h3>{{questions1[myIn].content}}</h3>\r\n                <div *ngFor=\"let a of questions1[myIn].answers\">\r\n                    \r\n                    <div *ngIf=\"a.correctnes==true\" class=\"card bg-secondary p-4 text-light mb-5\">\r\n                        \r\n                        <p style=\"color: lightgreen; font-weight: 700;\">Poprawna odpowiedź: {{a.content}}</p>\r\n                        <p>Twoja odpowiedz: {{answers[myIn].content}}</p>\r\n                        <p>Czas udzielania odpowiedzi: {{answers[myIn].time}}</p>\r\n\r\n                    </div>\r\n\r\n                </div>\r\n                \r\n            </div>\r\n        </div>\r\n    </ng-template>\r\n\r\n</div>"
+module.exports = "<div id=\"testContainer\">\n\n    <div class=\"pytanie\" *ngIf=\"egzamin==true; then isEgzamin; else noEgzamin\"></div>\n\n    <ng-template #isEgzamin>\n\n        <div class=\"row\">\n            <div class=\"col col-lg-4\">\n                <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\n                <p>{{czas}}</p>\n                <p>{{czasCalosci}}</p>\n                <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button> \n            </div>\n            <div class=\"col col-lg-8 card p-4\">\n                <div class=\"sekcjaTresci\">\n                    <p>{{questions1[indexPytanie].content}}</p>\n                    <hr class=\"bg-info\"/>\n                </div>\n                <div *ngFor=\"let a of questions1[indexPytanie].answers; let ind=index\" (click)=\"AddAnswerTaken(a,czas)\">\n                        <app-answer [answer]=\"a\" [nr]=\"ind\"></app-answer>\n                </div>\n            </div>\n        </div>\n        <!--\n        <div class=\"sekcjaBoczna\" style=\"font-size: 32px;\">\n            <p>{{indexPytanie + 1}}/{{questions1.length}}</p>\n            <p>{{czas}}</p>\n            <p>{{czasCalosci}}</p>\n            <button id=\"bNastepne\" class=\"btn btn-dark\">Nastepne</button>  \n        </div>\n\n        <div class=\"sekcjaPytania\">\n            <div class=\"sekcjaTresci\">\n                <p>{{questions1[indexPytanie].content}}</p>\n                <hr class=\"bg-info\"/>\n            </div>\n            <div *ngFor=\"let a of questions1[indexPytanie].answers; let ind=index\" (click)=\"AddAnswerTaken(a,czas)\">\n                    <app-answer [answer]=\"a\" [nr]=\"ind\"></app-answer>\n            </div>\n        </div>\n        -->\n    </ng-template>\n\n    <ng-template #noEgzamin>\n\n        <app-wynik [questions]=\"questions1\" [answers]=\"answers\"></app-wynik>\n\n    </ng-template>\n\n</div>"
 
 /***/ }),
 
@@ -131,11 +266,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuestionList", function() { return QuestionList; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ClientApp_app_app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ClientApp/app/app.component */ "./app/app.component.ts");
+/* harmony import */ var ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ClientApp/app/Models/test */ "./app/Models/test.ts");
+
+
 
 
 var QuestionList = /** @class */ (function () {
     function QuestionList() {
-        this.questions1 = new Array(new Question("Jak mam na imie", new Array(new Answer("Jakub", true), new Answer("Patryk", false), new Answer("Andrzej", false))), new Question("Ile mamy wojewodzctw?", new Array(new Answer("12", false), new Answer("23", false), new Answer("18", true))), new Question("Czy mozna zabic?", new Array(new Answer("Jak najbardziej", false), new Answer("To zależy", true), new Answer("Nie", false))));
+        this.questions1 = new Array(new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Question"]("Jak mam na imie", new Array(new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Jakub", true), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Patryk", false), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Andrzej", false))), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Question"]("Ile mamy wojewodzctw?", new Array(new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("12", false), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("23", false), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("18", true))), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Question"]("Czy mozna zabic?", new Array(new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Jak najbardziej", false), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("To zależy", true), new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Nie", false))));
         this.CZAS = 30;
         this.czasCalosci = 0;
         this.answers = new Array();
@@ -148,11 +287,7 @@ var QuestionList = /** @class */ (function () {
         this.StartMainClock();
     };
     QuestionList.prototype.createRange = function (number) {
-        var item = [];
-        for (var i = 1; i <= number; i++) {
-            item.push(i);
-        }
-        return item;
+        ClientApp_app_app_component__WEBPACK_IMPORTED_MODULE_2__["Range"].Create(number);
     };
     QuestionList.prototype.onEndExam = function () {
         this.egzamin = false;
@@ -165,13 +300,13 @@ var QuestionList = /** @class */ (function () {
             if (_this.czas <= 0) {
                 clearInterval(_this.czasinterwal);
                 if (_this.indexPytanie < _this.questions1.length - 1) {
-                    _this.answers.push(new Answer("Pominieto", false));
+                    _this.answers.push(new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Pominieto", false));
                     _this.indexPytanie++;
                     _this.czas = _this.CZAS;
                     _this.coSekunda();
                 }
                 else {
-                    _this.answers.push(new Answer("Pominieto", false));
+                    _this.answers.push(new ClientApp_app_Models_test__WEBPACK_IMPORTED_MODULE_3__["Answer"]("Pominieto", false));
                     _this.onEndExam();
                 }
             }
@@ -205,26 +340,84 @@ var QuestionList = /** @class */ (function () {
     return QuestionList;
 }());
 
-var Question = /** @class */ (function () {
-    function Question(content, answers) {
-        this.content = content;
-        this.answers = answers;
-    }
-    return Question;
-}());
-var Answer = /** @class */ (function () {
-    function Answer(_content, _corr, _time) {
-        if (_time === void 0) { _time = 0; }
-        this.content = _content;
-        this.correctnes = _corr;
-        this.time = _time;
-    }
-    return Answer;
-}());
 
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./app/wynik/wynik.component.css":
+/*!***************************************!*\
+  !*** ./app/wynik/wynik.component.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL3d5bmlrL3d5bmlrLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./app/wynik/wynik.component.html":
+/*!****************************************!*\
+  !*** ./app/wynik/wynik.component.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div *ngFor=\"let q of questions;let myIn=index;\">\n        \n        <h3>{{q.content}}</h3>\n        <div *ngFor=\"let a of q.answers\">\n            <div *ngIf=\"a.correctnes==true\" class=\"card bg-secondary p-4 text-light mb-5\">                \n                <p style=\"color: lightgreen; font-weight: 700;\">Poprawna odpowiedź: {{a.content}}</p>\n                <p>Twoja odpowiedz:{{answers[myIn].content}} </p>\n                <p>Czas udzielania odpowiedzi: {{answers[myIn].time}}</p>\n            </div>\n        </div>\n        \n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./app/wynik/wynik.component.ts":
+/*!**************************************!*\
+  !*** ./app/wynik/wynik.component.ts ***!
+  \**************************************/
+/*! exports provided: WynikComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WynikComponent", function() { return WynikComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ClientApp_app_app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ClientApp/app/app.component */ "./app/app.component.ts");
+
+
+
+var WynikComponent = /** @class */ (function () {
+    function WynikComponent() {
+        this.questions = new Array();
+        this.answers = new Array();
+    }
+    WynikComponent.prototype.Range = function (range) {
+        return ClientApp_app_app_component__WEBPACK_IMPORTED_MODULE_2__["Range"].Create(range);
+    };
+    WynikComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], WynikComponent.prototype, "questions", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], WynikComponent.prototype, "answers", void 0);
+    WynikComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-wynik',
+            template: __webpack_require__(/*! ./wynik.component.html */ "./app/wynik/wynik.component.html"),
+            styles: [__webpack_require__(/*! ./wynik.component.css */ "./app/wynik/wynik.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], WynikComponent);
+    return WynikComponent;
+}());
+
+
+
+/***/ }),
+
+>>>>>>> 3dc01d82029407b280ba76b2a7bbe56165b5b686
 /***/ "./environments/environment.ts":
 /*!*************************************!*\
   !*** ./environments/environment.ts ***!
@@ -286,7 +479,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\walko\dot-net\Projekt1\ClientApp\main.ts */"./main.ts");
+module.exports = __webpack_require__(/*! /home/jakub/net-core/budowa/ClientApp/main.ts */"./main.ts");
 
 
 /***/ })
