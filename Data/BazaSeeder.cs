@@ -34,13 +34,13 @@ namespace Projekt1.Data
             {
                 user = new StoreUser()
                 {
-                    FirstName = "Jakub",
-                    LastName = "Walkowski",
-                    Email = "walkoskuba@gmail.com",
-                    UserName = "walkoskuba@gmail.com"
+                    FirstName = "Patryk",
+                    LastName = "Walkowiak",
+                    Email = "adresemail@gmail.com",
+                    UserName = "adresemail@gmail.com"
                 };
 
-                var result = await _userManager.CreateAsync(user, "Placek.121");
+                var result = await _userManager.CreateAsync(user, "Haslo.123");
                 if (result != IdentityResult.Success)
                     throw new InvalidOperationException("Could not create new user in seeder!");
             }
