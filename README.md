@@ -1,2 +1,2 @@
 # na-powaznie
-w towjej dupie
+nic tu jeszcze nie napisalem
