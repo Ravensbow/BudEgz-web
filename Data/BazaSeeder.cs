@@ -28,7 +28,7 @@ namespace Projekt1.Data
         {
             _ctx.Database.EnsureCreated();
 
-            StoreUser user = await _userManager.FindByEmailAsync("walkoskuba@gmail.com");
+            StoreUser user = await _userManager.FindByEmailAsync("adresemail@gmail.com");
 
             if (user == null)
             {
